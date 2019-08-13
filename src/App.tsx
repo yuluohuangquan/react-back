@@ -1,6 +1,5 @@
 import React from 'react';
 import logo from './logo.svg';
-import { Button } from 'antd';
 import './App.css';
 
 class App extends React.Component {
@@ -13,7 +12,6 @@ class App extends React.Component {
             welcome sun
           </p>
         </header>
-        <Button type="primary">antd按钮</Button>
       </div>
     );
   };

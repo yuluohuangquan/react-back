@@ -1,9 +1,13 @@
-import React from 'react';
+import React from "react";
 
-function Login() {
+class Test extends React.Component {
+  render() {
     return (
-        <div>{'登录'}</div>
+      <>
+        <p>{"登录页面"}</p>
+      </>
     );
+  }
 }
 
-export default Login;
+export default Test;

@@ -1,19 +1,23 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Button } from "antd";
 import store from "../../store";
+import { testApi } from "../../axios/api";
+import axios from "axios";
 
 interface MainProps {
-  }
-  interface MainState {
-    count: number
-  }
+  count: number;
+  list: any;
+  changeCount: Function;
+  query: Function;
+}
+interface MainState {}
 
 class Test extends React.Component<MainProps, MainState> {
   constructor(props: MainProps) {
     super(props);
-    this.state = store.getState();
+    this.state = {};
     this.handleStoreChange = this.handleStoreChange.bind(this);
-    store.subscribe(this.handleStoreChange);
     window.console.log(store.getState());
   }
 
@@ -23,25 +27,25 @@ class Test extends React.Component<MainProps, MainState> {
   }
 
   increase = () => {
-    const { count } = this.state;
-    const action = {
-      type: "INCREASE",
-      value: count,
-    };
-    store.dispatch(action);
+    const { count } = this.props;
+    this.props.changeCount(count + 1);
   };
 
   decrease = () => {
-    const { count } = this.state;
-    const action = {
-      type: "DECREASE",
-      value: count,
-    };
-    store.dispatch(action);
+    const { count } = this.props;
+    this.props.changeCount(count - 1);
+  };
+
+  query = () => {
+    const { count } = this.props;
+    axios.get(testApi).then((res: any) => {
+      this.props.query(res);
+    });
   };
 
   render() {
-    const { count } = this.state;
+    const { count, list } = this.props;
+    window.console.log(list);
     return (
       <>
         <p>{"测试页面"}</p>
@@ -52,10 +56,48 @@ class Test extends React.Component<MainProps, MainState> {
         <Button type="primary" onClick={this.decrease}>
           {"删除"}
         </Button>
-        <Button type="default">{"查询"}</Button>
+        <Button type="default" onClick={this.query}>
+          {"查询"}
+        </Button>
+        <ul>
+          {list &&
+            list.bibidaoList &&
+            list.bibidaoList.map((item: any) => {
+              return <li key={item.id} >{item.title}</li>;
+            })}
+        </ul>
       </>
     );
   }
 }
 
-export default Test;
+const mapStateToProps = (state: any) => {
+  return {
+    count: state.count,
+    list: state.list
+  };
+};
+
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    changeCount: (count: number) => {
+      dispatch({
+        type: "CHANGE_COUNT",
+        count
+      });
+    },
+    query: (list: any) => {
+      dispatch({
+        type: "CHANGE_TEST_LIST",
+        list
+      });
+    }
+  };
+};
+
+const Main = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Test);
+
+export default Main;

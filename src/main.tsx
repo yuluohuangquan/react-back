@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import './axios/interceptors';
 
 import Login from "./components/login";
 import Test from "./components/test";

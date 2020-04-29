@@ -1,13 +1,20 @@
 import React from "react";
+import { Button } from "antd";
+import { useHistory } from "react-router-dom";
 
-class Test extends React.Component {
-  render() {
-    return (
-      <>
-        <p>{"登录页面"}</p>
-      </>
-    );
-  }
-}
+export default function Login() {
+  let history = useHistory();
 
-export default Test;
+  return (
+    <>
+      <p>{"登录页面"}</p>
+      <Button
+        onClick={() => {
+          history.push("/test");
+        }}
+      >
+        {"去测试页面"}
+      </Button>
+    </>
+  );
+};

@@ -4,7 +4,7 @@ import { Button } from "antd";
 import store from "../../store";
 import { testApi } from "../../axios/api";
 import axios from "axios";
-import './index.less';
+import "./styles/main.modules.less";
 
 interface MainProps {
   count: number;
@@ -47,7 +47,7 @@ class Test extends React.Component<MainProps, MainState> {
     const { count, list } = this.props;
     window.console.log(list);
     return (
-      <div className="main">
+      <div className={'main'}>
         <p>{"测试页面"}</p>
         {count}
         <Button type="dashed" onClick={this.increase}>
@@ -63,7 +63,7 @@ class Test extends React.Component<MainProps, MainState> {
           {list &&
             list.bibidaoList &&
             list.bibidaoList.map((item: any) => {
-              return <li key={item.id} >{item.title}</li>;
+              return <li key={item.id}>{item.title}</li>;
             })}
         </ul>
       </div>

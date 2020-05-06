@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./axios/interceptors";
 
 import Login from "./components/login";
+import Home from './components/home';
 import Test from "./components/test";
 import Translate from "./components/translate";
 
@@ -16,6 +17,7 @@ function Main() {
     <Provider store={store}>
       <Router>
         <Route path="/login" component={Login} />
+        <Route path="/home" component={Home} />
         <Route path="/test" component={Test} />
         <Route path="/translate" component={Translate} />
         <Route path="/" exact component={Login} />

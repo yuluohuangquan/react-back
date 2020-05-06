@@ -34,7 +34,7 @@ export default function Translate() {
       );
       list.push({
         zh: defaultValue.split(/\n/)[index],
-        i18n: `I18n.t('${item.toLocaleUpperCase().replace(/\ /g, "_")}')`
+        i18n: `I18n.t('${keyTitle}${item.toLocaleUpperCase().replace(/\ /g, "_")}')`
       });
     });
     setEnList(translateList);

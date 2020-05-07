@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Button } from "antd";
+import Container from "../container";
 import store from "../../store";
 import { testApi } from "../../axios/api";
 import axios from "axios";
@@ -47,26 +48,28 @@ class Test extends React.Component<MainProps, MainState> {
     const { count, list } = this.props;
     window.console.log(list);
     return (
-      <div className={css.main}>
-        <p>{"测试页面"}</p>
-        {count}
-        <Button type="dashed" onClick={this.increase}>
-          {"新增"}
-        </Button>
-        <Button type="primary" onClick={this.decrease}>
-          {"删除"}
-        </Button>
-        <Button type="default" onClick={this.query}>
-          {"查询"}
-        </Button>
-        <ul>
-          {list &&
-            list.bibidaoList &&
-            list.bibidaoList.map((item: any) => {
-              return <li key={item.id}>{item.title}</li>;
-            })}
-        </ul>
-      </div>
+      <Container>
+        <div className={css.main}>
+          <p>{"测试页面"}</p>
+          {count}
+          <Button type="dashed" onClick={this.increase}>
+            {"新增"}
+          </Button>
+          <Button type="primary" onClick={this.decrease}>
+            {"删除"}
+          </Button>
+          <Button type="default" onClick={this.query}>
+            {"查询"}
+          </Button>
+          <ul>
+            {list &&
+              list.bibidaoList &&
+              list.bibidaoList.map((item: any) => {
+                return <li key={item.id}>{item.title}</li>;
+              })}
+          </ul>
+        </div>
+      </Container>
     );
   }
 }

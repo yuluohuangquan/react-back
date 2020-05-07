@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Input, Button, Table, Collapse, List } from "antd";
+import Container from "../container";
 import css from "./styles/index.module.less";
 import { colum } from "./constant";
 
@@ -43,6 +44,7 @@ export default function Translate() {
   };
 
   return (
+    <Container>
     <div className={css.main}>
       <div className={css.title}>
         <div className={css.titleText}>
@@ -94,5 +96,6 @@ export default function Translate() {
         </Panel>
       </Collapse>
     </div>
+    </Container>
   );
 }

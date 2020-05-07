@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Input, Button, Table, Collapse, List } from "antd";
-import "./styles/index.modules.less";
+import css from "./styles/index.module.less";
 import { colum } from "./constant";
 
 const { Panel } = Collapse;
@@ -43,9 +43,9 @@ export default function Translate() {
   };
 
   return (
-    <div className={"main"}>
-      <div className={"title"}>
-        <div className={"title-text"}>
+    <div className={css.main}>
+      <div className={css.title}>
+        <div className={css.titleText}>
           <p>{"翻译页面  "}</p>
           <Input
             placeholder={"key值头部"}
@@ -58,16 +58,16 @@ export default function Translate() {
           {"翻译"}
         </Button>
       </div>
-      <div className={"input-list"}>
+      <div className={css.inputList}>
         <Textarea
-          className={"input-height"}
+          className={css.inputHeight}
           placeholder="输入需要翻译的内容"
           onChange={e => {
             setDefaultValue(e.target.value);
           }}
         />
         <Textarea
-          className={"input-height"}
+          className={css.inputHeight}
           placeholder="输入翻译后的内容"
           onChange={e => {
             setTranslateValue(e.target.value);

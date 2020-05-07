@@ -4,7 +4,7 @@ import { Button } from "antd";
 import store from "../../store";
 import { testApi } from "../../axios/api";
 import axios from "axios";
-import "./styles/main.modules.less";
+import css from "./styles/main.module.less";
 
 interface MainProps {
   count: number;
@@ -47,7 +47,7 @@ class Test extends React.Component<MainProps, MainState> {
     const { count, list } = this.props;
     window.console.log(list);
     return (
-      <div className={'main'}>
+      <div className={css.main}>
         <p>{"测试页面"}</p>
         {count}
         <Button type="dashed" onClick={this.increase}>

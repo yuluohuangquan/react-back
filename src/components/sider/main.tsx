@@ -1,10 +1,10 @@
 import React from "react";
-import "./styles/main.modules.less";
+import css from "./styles/main.module.less";
 
 export default function Sider() {
 
   return (
-    <div className={"sider"}>
+    <div className={css.sider}>
      {'侧边栏'}
     </div>
   );

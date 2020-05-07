@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Card, Input, Form } from "antd";
 import { useHistory } from "react-router-dom";
-import "./styles/main.modules.less";
+import css from "./styles/main.module.less";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 
 export default function Login() {
@@ -15,8 +15,8 @@ export default function Login() {
   };
 
   return (
-    <div className={"login"}>
-      <Card title={"登录"} className={"login-main"}>
+    <div className={css.loginMain}>
+      <Card title={"登录"} className={css.loginContent}>
         <Form form={form} onFinish={login}>
           <Form.Item
             name="name"
@@ -37,7 +37,7 @@ export default function Login() {
             />
           </Form.Item>
           <Form.Item>
-            <Button className={"login-button"} htmlType="submit">
+            <Button className={css.loginButton} htmlType="submit">
               {"登录"}
             </Button>
           </Form.Item>

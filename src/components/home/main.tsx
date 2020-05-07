@@ -1,17 +1,11 @@
 import React from "react";
 
-import Header from "../header";
-import Sider from "../sider";
-import "./styles/main.modules.less";
+import css from "./styles/main.module.less";
 
 export default function Home() {
   return (
-    <div className={"home"}>
-      <Header />
-      <div className={"home-content"}>
-        <Sider />
-        {"首页"}
-      </div>
+    <div className={css.home}>
+      <div className={css.homeContent}>{"首页"}</div>
     </div>
   );
 }
